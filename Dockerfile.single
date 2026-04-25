@@ -1,0 +1,19 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential openmpi-bin libopenmpi-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+ENV OMPI_ALLOW_RUN_AS_ROOT=1
+ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
+
+WORKDIR /app
+RUN mkdir -p /app/output
+
+COPY src/ src/
+COPY Makefile .
+RUN make
+
+ENTRYPOINT ["mpirun"]
+CMD ["-np", "4", "/app/stats", "--gb", "10"]
