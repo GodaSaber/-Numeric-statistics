@@ -1,0 +1,22 @@
+# Compiled binary
+stats
+
+# Output results
+output/*.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+docker-compose.override.yml
+
+# Object files
+*.o
+*.out
