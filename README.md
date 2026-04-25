@@ -38,9 +38,7 @@ mpi-distributed-stats/
 ├── Dockerfile.single      # Single-container MPI setup
 ├── docker-compose.yml     # Multi-node cluster config
 ├── Makefile               # Build configuration
-├── hostfile               # MPI host configuration
 ├── .gitignore
-├── LICENSE
 └── README.md
 ```
 
@@ -158,17 +156,6 @@ Total time           : 45.1234 seconds
 Throughput           : 0.22 GB/s
 Processes used       : 4
 ```
-
----
-
-## Build Without Docker (Local MPI)
-
-```bash
-# Install MPI (Ubuntu/Debian)
-sudo apt-get install build-essential openmpi-bin libopenmpi-dev
-
-# Build
-make
 
 # Run
 mpirun -np 4 ./stats --gb 10
