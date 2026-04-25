@@ -156,7 +156,3 @@ Total time           : 45.1234 seconds
 Throughput           : 0.22 GB/s
 Processes used       : 4
 ```
-
-# Run
-mpirun -np 4 ./stats --gb 10
-```
