@@ -127,7 +127,7 @@ This launches 3 containers (1 master + 2 workers) with 2 processes each — **6 
 
 ```
 =============================================
-      Distributed Numeric Statistics
+      Distributed Numeric Statistics         
 =============================================
 
 --- Data Info ---
@@ -145,14 +145,33 @@ Memory per process   : ~45.78 MB (chunk + freq)
 
 ============== Results ==============
 
+--- Size Summary ---
+Total data processed : 10.00 GB (2684354560 elements)
+Data per process     : 2.50 GB (671088640 elements)
+Memory used per proc : ~45.78 MB
+
 --- Statistics ---
 Min                  : 0
 Max                  : 999999
-Sum                  : 1341856742338560
-Mean                 : 499979.238476
+Sum                  : 1342013402865157
+Mean                 : 499938.951010
 
 --- Performance ---
-Total time           : 45.1234 seconds
-Throughput           : 0.22 GB/s
+Total time           : 19.4554 seconds
+Throughput           : 0.51 GB/s
 Processes used       : 4
+
+--- Top 10 Most Frequent Values ---
+  Value   |   Count
+----------+-----------
+   867837 |      2937
+   734974 |      2923
+   972275 |      2921
+   215053 |      2920
+    79382 |      2918
+   765549 |      2916
+   384886 |      2916
+   708541 |      2914
+   482869 |      2913
+   459672 |      2913
 ```
