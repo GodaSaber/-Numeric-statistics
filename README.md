@@ -132,9 +132,9 @@ This launches 3 containers (1 master + 2 workers) with 2 processes each — **6 
 
 --- Data Info ---
 Total elements       : 2684354560
-Element size         : 4 bytes (unsigned int)
+Element size         : 4 bytes (int)
 Total data size      : 10.00 GB (10737418240 bytes)
-Value range          : [0, 1000000)
+Value range          : [-500000, 500000)
 
 --- Distribution Info ---
 MPI processes        : 4
@@ -151,27 +151,28 @@ Data per process     : 2.50 GB (671088640 elements)
 Memory used per proc : ~45.78 MB
 
 --- Statistics ---
-Min                  : 0
-Max                  : 999999
-Sum                  : 1342013402865157
-Mean                 : 499938.951010
+Min                  : -500000
+Max                  : 499999
+Sum                  : -150427769435
+Mean                 : -56.038711
 
 --- Performance ---
-Total time           : 19.4554 seconds
-Throughput           : 0.51 GB/s
+Total time           : 24.3318 seconds
+Throughput           : 0.41 GB/s
 Processes used       : 4
 
 --- Top 10 Most Frequent Values ---
-  Value   |   Count
-----------+-----------
-   867837 |      2937
-   734974 |      2923
-   972275 |      2921
-   215053 |      2920
-    79382 |      2918
-   765549 |      2916
-   384886 |      2916
-   708541 |      2914
-   482869 |      2913
-   459672 |      2913
+   Value   |   Count
+-----------+-----------
+   -384308 |      2928
+    408129 |      2922
+   -305312 |      2914
+    407067 |      2913
+    469620 |      2913
+   -371825 |      2913
+   -228418 |      2911
+   -106538 |      2908
+    -46000 |      2907
+    388250 |      2907
+
 ```
