@@ -118,8 +118,8 @@ Total data size      : 10.00 GB (10737418240 bytes)
 Value range          : [-500000, 500000)
 
 --- Distribution Info ---
-MPI processes        : 8
-Elements per process : 335544320 (~1.25 GB)
+MPI processes        : 2
+Elements per process : 1342177280 (~5.00 GB)
 Chunk size           : 10000000 elements (~38.15 MB)
 Freq array per proc  : 1000000 buckets (~7.63 MB)
 Memory per process   : ~45.78 MB (chunk + freq)
@@ -128,18 +128,18 @@ Memory per process   : ~45.78 MB (chunk + freq)
 
 --- Size Summary ---
 Total data processed : 10.00 GB (2684354560 elements)
-Data per process     : 1.25 GB (335544320 elements)
+Data per process     : 5.00 GB (1342177280 elements)
 Memory used per proc : ~45.78 MB
 
 --- Statistics ---
 Min                  : -500000
 Max                  : 499999
-Sum                  : -173856429183
-Mean                 : -64.766567
+Sum                  : -153032313989
+Mean                 : -57.008979
 
 --- Performance ---
-Total time           : 23.9678 seconds
-Throughput           : 0.42 GB/s
-Processes used       : 8
+Total time           : 37.5247 seconds
+Throughput           : 0.27 GB/s
+Processes used       : 2
 
 ```
