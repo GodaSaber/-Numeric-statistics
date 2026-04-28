@@ -49,40 +49,29 @@ mpi-distributed-stats/
 ### Prerequisites
 
 - [Docker](https://www.docker.com/get-started) installed
-
+- 
+## Multi-Node Setup (Docker Compose)
 ### Build
 
 ```bash
-docker build -f Dockerfile.single -t mpi-stats .
-```
+docker-compose build ```
 
 ### Run
 
 ```bash
 mkdir -p output
 
-# Default: 10 GB with 4 processes
-docker run --rm -v $(pwd)/output:/app/output mpi-stats
+# Test with 2 processes (across containers)
+NP=2 ELEMENTS=1000000 docker-compose up --abort-on-container-exit
 
-# Custom size examples
-docker run --rm -v $(pwd)/output:/app/output mpi-stats -np 4 /app/stats --gb 10
-docker run --rm -v $(pwd)/output:/app/output mpi-stats -np 4 /app/stats --mb 500
-docker run --rm -v $(pwd)/output:/app/output mpi-stats -np 8 /app/stats --gb 1
-docker run --rm -v $(pwd)/output:/app/output mpi-stats -np 4 /app/stats --elements 100000000
+# Clean up:
+docker-compose down -v
 
 # View results
 cat output/results.txt
 ```
 
-### Size Options
 
-| Flag | Example | Description |
-|------|---------|-------------|
-| `--gb <N>` | `--gb 10` | Size in gigabytes |
-| `--mb <N>` | `--mb 500` | Size in megabytes |
-| `--elements <N>` | `--elements 100000000` | Exact element count |
-| `--bytes <N>` | `--bytes 10737418240` | Exact byte count |
-| *(no args)* | | Default: 10 GB |
 
 ---
 
@@ -113,15 +102,7 @@ The frequency array (1M buckets) is reduced in batches of 250K buckets to avoid 
 
 ---
 
-## Multi-Node Setup (Docker Compose)
 
-```bash
-docker-compose up --build
-```
-
-This launches 3 containers (1 master + 2 workers) with 2 processes each — **6 total MPI processes**.
-
----
 
 ## Sample Output
 
@@ -137,8 +118,8 @@ Total data size      : 10.00 GB (10737418240 bytes)
 Value range          : [-500000, 500000)
 
 --- Distribution Info ---
-MPI processes        : 4
-Elements per process : 671088640 (~2.50 GB)
+MPI processes        : 8
+Elements per process : 335544320 (~1.25 GB)
 Chunk size           : 10000000 elements (~38.15 MB)
 Freq array per proc  : 1000000 buckets (~7.63 MB)
 Memory per process   : ~45.78 MB (chunk + freq)
@@ -147,32 +128,18 @@ Memory per process   : ~45.78 MB (chunk + freq)
 
 --- Size Summary ---
 Total data processed : 10.00 GB (2684354560 elements)
-Data per process     : 2.50 GB (671088640 elements)
+Data per process     : 1.25 GB (335544320 elements)
 Memory used per proc : ~45.78 MB
 
 --- Statistics ---
 Min                  : -500000
 Max                  : 499999
-Sum                  : -150427769435
-Mean                 : -56.038711
+Sum                  : -173856429183
+Mean                 : -64.766567
 
 --- Performance ---
-Total time           : 24.3318 seconds
-Throughput           : 0.41 GB/s
-Processes used       : 4
-
---- Top 10 Most Frequent Values ---
-   Value   |   Count
------------+-----------
-   -384308 |      2928
-    408129 |      2922
-   -305312 |      2914
-    407067 |      2913
-    469620 |      2913
-   -371825 |      2913
-   -228418 |      2911
-   -106538 |      2908
-    -46000 |      2907
-    388250 |      2907
+Total time           : 23.9678 seconds
+Throughput           : 0.42 GB/s
+Processes used       : 8
 
 ```
